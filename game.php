@@ -5,7 +5,11 @@
 
 function deal() {
 
-    $suits = ['diamonds', 'hearts', 'clubs', 'spades'];
+    $suits = [
+        1 => 'diamonds',
+        2 => 'hearts',
+        3 => 'clubs',
+        4 => 'spades'];
     $numbers =[
         2 => 2,
         3 => 3,
@@ -21,4 +25,10 @@ function deal() {
         'K' => 10,
         'A' => 11
     ];
+
+    $dealCard1 = $suits[array_rand($suits)] . '-' . array_rand($numbers);
+    echo $dealCard1;
 };
+echo deal();
+
+
