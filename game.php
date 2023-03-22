@@ -25,9 +25,26 @@ foreach ($suits as $suit) {
         $deck[] = $card . " of " . $suit;
     }
 }
-echo '<pre>';
-print_r($deck);
-echo '</pre';
+
+//printing the deck
+/*//echo '<pre>';
+//print_r($deck);
+//echo '</pre';*/
+
+//shuffle deck
+shuffle($deck);
+
+//dealing cards to player and dealer
+function deal(){
+    global $deck;
+    $dealerHand = [];
+    $playerHand = [];
+
+    $dealerHand[] = array_shift($deck);
+    $playerHand[] = array_shift($deck);
+    $dealerHand[] = array_shift($deck);
+    $playerHand[] = array_shift($deck);
+}
 
 
 
