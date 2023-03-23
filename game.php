@@ -19,13 +19,18 @@ $cards = [
     ];
 
 //Create the deck
-$deck = array();
-foreach ($suits as $suit) {
-    foreach ($cards as $card) {
-        $deck[] = $card . " of " . $suit;
-    }
-}
+function createDeck($suits, $cards)
+{
 
+
+    $deck = [];
+    foreach ($suits as $suit) {
+        foreach ($cards as $card) {
+            $deck[] = $card . " of " . $suit;
+        }
+    }
+    return $deck;3
+}
 //printing the deck
 /*//echo '<pre>';
 //print_r($deck);
@@ -35,7 +40,8 @@ foreach ($suits as $suit) {
 shuffle($deck);
 
 //dealing cards to player and dealer
-function deal(){
+function deal(): array
+{
     global $deck;
     $dealerHand = [];
     $playerHand = [];
@@ -44,6 +50,13 @@ function deal(){
     $playerHand[] = array_shift($deck);
     $dealerHand[] = array_shift($deck);
     $playerHand[] = array_shift($deck);
+
+}
+
+///calculate value of hands
+
+function calcHand($hand) {
+
 }
 
 
