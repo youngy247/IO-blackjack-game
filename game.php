@@ -31,10 +31,8 @@ function createDeck($suits, $cards)
     }
     return $deck;3
 }
-//printing the deck
-/*//echo '<pre>';
-//print_r($deck);
-//echo '</pre';*/
+// Create a new deck of cards
+$deck = createDeck($suits, $cards);
 
 //shuffle deck
 shuffle($deck);
@@ -53,11 +51,33 @@ function deal(): array
 
 }
 
-///calculate value of hands
-
-function calcHand($hand) {
-
 }
 
-
+// Define function to calculate the total value of a hand of cards
+function calcHandValue($hand) {
+    $value = 0;
+    $aceCount = 0;
+    foreach ($hand as $card) {
+        $cardValue = substr($card, 0, strpos($card, " "));
+        switch ($cardValue) {
+            case "Ace":
+                $aceCount++;
+                $value += 11;
+                break;
+            case "King":
+            case "Queen":
+            case "Jack":
+                $value += 10;
+                break;
+            default:
+                $value += intval($cardValue);
+                break;
+        }
+    }
+    while ($aceCount > 0 && $value > 21) {
+        $value -= 10;
+        $aceCount--;
+    }
+    return $value;
+}
 
