@@ -47,8 +47,16 @@ function dealDealer($deck): array
     return $dealerHand;
 };
 
-//$playerHand[] = array_shift($deck);
-//$playerHand[] = array_shift($deck);
+function dealPlayer($deck): array
+{
+    $playerHand = [];
+    $playerHand[] = array_shift($deck);
+    $playerHand[] = array_shift($deck);
+
+    return $playerHand;
+}
+
+
 
 
 
