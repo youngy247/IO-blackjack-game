@@ -12,10 +12,10 @@ $cards = [
     '8'=>8,
     '9'=>9,
     '10'=>10,
-    'J'=>10,
-    'Q'=>10,
-    'K'=>10,
-    'A'=>11
+    'Jack'=>10,
+    'Queen'=>10,
+    'King'=>10,
+    'Ace'=>11
     ];
 
 //Defining playerHand and dealerHand
@@ -62,10 +62,10 @@ function dealPlayer($deck): array
 }
 
 // Define function to calculate the total value of a hand of cards
-function calcHandValue($hand) {
+function calcHandValue($deck, $playerHand) {
     $value = 0;
     $aceCount = 0;
-    foreach ($hand as $card) {
+    foreach ($playerHand as $card) {
         $cardValue = substr($card, 0, strpos($card, " "));
         switch ($cardValue) {
             case "Ace":
@@ -96,7 +96,7 @@ function displayPlayerCards($playerHand)
     foreach ($playerHand as $card) {
         echo $card . "<br>";
     }
-    $playerTotal = calculateHandValue($playerHand);
+    $playerTotal = calcHandValue($playerHand);
     echo "Player's total: " . $playerTotal . "<br>";
 }
 
@@ -111,3 +111,4 @@ dealDealer($deck);
 dealPlayer($deck);
 calcHandValue($playerHand);
 
+print_r(displayPlayerCards($playerHand));
