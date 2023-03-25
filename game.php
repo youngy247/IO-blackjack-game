@@ -54,9 +54,9 @@ function dealDealer(&$deck, &$dealerHand): array
 
 function dealPlayer(&$deck, &$playerHand): array
 {
-    $playerHand = [];
+
     $playerHand[] = array_shift($deck);
-    $playerHand[] = array_shift($deck);
+
 
 
     return $playerHand;
@@ -95,6 +95,8 @@ function calcHandValueP($playerHand): string
 // deal cards to player and dealer
 dealDealer($deck, $dealerHand);
 dealPlayer($deck, $playerHand);
+dealPlayer($deck, $playerHand);
+
 
 // calculate the value of the player's hand
 $handValueP = calcHandValueP($playerHand);
