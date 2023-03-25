@@ -29,7 +29,7 @@ function createDeck($suits, $cards)
             $deck[] = $card . " of " . $suit;
         }
     }
-    return $deck;3
+    return $deck;
 }
 // Create a new deck of cards
 $deck = createDeck($suits, $cards);
@@ -38,20 +38,19 @@ $deck = createDeck($suits, $cards);
 shuffle($deck);
 
 //dealing cards to player and dealer
-function deal(): array
+function dealDealer($deck): array
 {
-    global $deck;
     $dealerHand = [];
-    $playerHand = [];
-
     $dealerHand[] = array_shift($deck);
-    $playerHand[] = array_shift($deck);
     $dealerHand[] = array_shift($deck);
-    $playerHand[] = array_shift($deck);
 
-}
+    return $dealerHand;
+};
 
-}
+//$playerHand[] = array_shift($deck);
+//$playerHand[] = array_shift($deck);
+
+
 
 // Define function to calculate the total value of a hand of cards
 function calcHandValue($hand) {
@@ -80,4 +79,17 @@ function calcHandValue($hand) {
     }
     return $value;
 }
+global $dealerCards, $playerCards;
+// Print out the player's cards and their total value
+echo "Player's cards:<br>";
+foreach ($playerCards as $card) {
+    echo $card . "<br>";
+}
+$playerTotal = calculateHandValue($playerCards);
+echo "Player's total: " . $playerTotal . "<br>";
+
+// Print out the dealer's first card
+echo "Dealer's cards:<br>";
+echo $dealerCards[0] . "<br>";
+
 
