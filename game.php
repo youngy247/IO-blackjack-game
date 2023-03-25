@@ -87,7 +87,7 @@ function calcHandValue($hand) {
     }
     return $value;
 }
-global $dealerCards, $playerCards;
+
 // Print out the player's cards and their total value
 function displayPlayerCards($playerHand)
 {
