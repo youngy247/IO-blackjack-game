@@ -18,6 +18,10 @@ $cards = [
     'A'=>11
     ];
 
+//Defining playerHand and dealerHand
+$playerHand = [];
+$dealerHand = [];
+
 //Create the deck
 function createDeck($suits, $cards)
 {
@@ -37,6 +41,7 @@ $deck = createDeck($suits, $cards);
 //shuffle deck
 shuffle($deck);
 
+
 //dealing cards to player and dealer
 function dealDealer($deck): array
 {
@@ -55,10 +60,6 @@ function dealPlayer($deck): array
 
     return $playerHand;
 }
-
-
-
-
 
 // Define function to calculate the total value of a hand of cards
 function calcHandValue($hand) {
@@ -106,4 +107,7 @@ function displayDealerCard1($dealerHand)
     echo $dealerHand[0] . "<br>";
 }
 
+dealDealer($deck);
+dealPlayer($deck);
+calcHandValue($playerHand);
 
