@@ -43,16 +43,16 @@ shuffle($deck);
 
 
 //dealing cards to player and dealer
-function dealDealer($deck): array
+function dealDealer(&$deck, &$dealerHand): array
 {
-    $dealerHand = [];
+
     $dealerHand[] = array_shift($deck);
     $dealerHand[] = array_shift($deck);
 
     return $dealerHand;
 };
 
-function dealPlayer($deck): array
+function dealPlayer(&$deck, &$playerHand): array
 {
     $playerHand = [];
     $playerHand[] = array_shift($deck);
@@ -63,7 +63,7 @@ function dealPlayer($deck): array
 }
 
 // Define function to calculate the total value of a hand of cards
-function calcHandValue($playerHand): string
+function calcHandValueP($playerHand): string
 {
     $value = 0;
     $aceCount = 0;
@@ -93,12 +93,16 @@ function calcHandValue($playerHand): string
 }
 
 // deal cards to player and dealer
-$dealerHand = dealDealer($deck);
-$playerHand = dealPlayer($deck);
+dealDealer($deck, $dealerHand);
+dealPlayer($deck, $playerHand);
 
 // calculate the value of the player's hand
-$handValue = calcHandValue($playerHand);
-echo $handValue;
+$handValueP = calcHandValueP($playerHand);
+echo $handValueP;
+echo '<p></p>';
+displayDealerCard1($dealerHand);
+
+
 
 
 
@@ -111,7 +115,7 @@ function displayPlayerCards($playerHand)
     foreach ($playerHand as $card) {
         echo $card . "<br>";
     }
-    $playerTotal = calcHandValue($playerHand);
+    $playerTotal = calcHandValueP($playerHand);
     echo "Player's total: " . $playerTotal . "<br>";
 }
 
