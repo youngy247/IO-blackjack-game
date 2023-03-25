@@ -89,15 +89,21 @@ function calcHandValue($hand) {
 }
 global $dealerCards, $playerCards;
 // Print out the player's cards and their total value
-echo "Player's cards:<br>";
-foreach ($playerCards as $card) {
-    echo $card . "<br>";
+function displayPlayerCards($playerHand)
+{
+    echo "Player's cards:<br>";
+    foreach ($playerHand as $card) {
+        echo $card . "<br>";
+    }
+    $playerTotal = calculateHandValue($playerHand);
+    echo "Player's total: " . $playerTotal . "<br>";
 }
-$playerTotal = calculateHandValue($playerCards);
-echo "Player's total: " . $playerTotal . "<br>";
 
 // Print out the dealer's first card
-echo "Dealer's cards:<br>";
-echo $dealerCards[0] . "<br>";
+function displayDealerCard1($dealerHand)
+{
+    echo "Dealer's cards:<br>";
+    echo $dealerHand[0] . "<br>";
+}
 
 
